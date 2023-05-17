@@ -1,7 +1,11 @@
 no/restaff/fresher/ui/SignInPage.class
 no/restaff/fresher/tasks/_Example_Search.class
+no/restaff/fresher/tasks/FindUsernameInputField.class
+no/restaff/fresher/entity/Category.class
+no/restaff/fresher/entity/User.class
 no/restaff/fresher/features/search/ExampleSearchByKeywordStory.class
 no/restaff/fresher/ui/_Example_GoogleSearchPage.class
 no/restaff/fresher/tasks/OpenTheSignInPage.class
+no/restaff/fresher/ui/SignInBox.class
 no/restaff/fresher/features/search/package-info.class
 no/restaff/fresher/ui/_Example_SearchBox.class
