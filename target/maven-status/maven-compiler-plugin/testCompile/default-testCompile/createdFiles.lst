@@ -1,6 +1,7 @@
-no/restaff/fresher/ui/GoogleSearchPage.class
-no/restaff/fresher/tasks/OpenTheApplication.class
-no/restaff/fresher/features/search/SearchByKeywordStory.class
-no/restaff/fresher/tasks/Search.class
+no/restaff/fresher/ui/SignInPage.class
+no/restaff/fresher/tasks/_Example_Search.class
+no/restaff/fresher/features/search/ExampleSearchByKeywordStory.class
+no/restaff/fresher/ui/_Example_GoogleSearchPage.class
+no/restaff/fresher/tasks/OpenTheSignInPage.class
 no/restaff/fresher/features/search/package-info.class
-no/restaff/fresher/ui/SearchBox.class
+no/restaff/fresher/ui/_Example_SearchBox.class

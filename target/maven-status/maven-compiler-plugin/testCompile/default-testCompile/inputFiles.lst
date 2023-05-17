@@ -1,6 +1,7 @@
-/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/features/search/SearchByKeywordStory.java
-/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/ui/GoogleSearchPage.java
-/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/tasks/OpenTheApplication.java
+/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/ui/_Example_SearchBox.java
+/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/ui/_Example_GoogleSearchPage.java
+/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/ui/SignInPage.java
+/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/tasks/_Example_Search.java
+/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/features/search/ExampleSearchByKeywordStory.java
 /Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/features/search/package-info.java
-/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/ui/SearchBox.java
-/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/tasks/Search.java
+/Users/cuongnguyen-oceansmart/IdeaProjects/bisllly-learns-serenity/src/test/java/no/restaff/fresher/tasks/OpenTheSignInPage.java
