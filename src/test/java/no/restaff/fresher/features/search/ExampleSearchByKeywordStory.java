@@ -2,15 +2,18 @@ package no.restaff.fresher.features.search;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.ClickOnElement;
-import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.*;
+
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import no.restaff.fresher.entity.Category;
 import no.restaff.fresher.entity.User;
 import no.restaff.fresher.tasks.FindUsernameInputField;
+import no.restaff.fresher.ui.CreateCommentCategoryBox;
+import no.restaff.fresher.ui.CreateCommentCategoryUI;
+import no.restaff.fresher.ui.NavigatorUI;
 import no.restaff.fresher.ui.SignInBox;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +22,8 @@ import org.openqa.selenium.WebDriver;
 import no.restaff.fresher.tasks.OpenTheSignInPage;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
-import static org.hamcrest.Matchers.hasItem;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
+
 
 @RunWith(SerenityRunner.class)
 public class ExampleSearchByKeywordStory {
@@ -29,6 +33,7 @@ public class ExampleSearchByKeywordStory {
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
     private User user = new User("testbot@mailinator.com", "Password..1");
+    private Category category = new Category("test");
 
     @Steps
     OpenTheSignInPage openTheSignInPage;
@@ -40,6 +45,9 @@ public class ExampleSearchByKeywordStory {
         anna.can(
                 BrowseTheWeb.with(herBrowser)
         );
+        david.can(
+                BrowseTheWeb.with(herBrowser)
+        );
     }
 
     @Test
@@ -49,15 +57,22 @@ public class ExampleSearchByKeywordStory {
     @Test
     public void log_in_and_go_to_add() {
         anna.attemptsTo(
-                Click.on(SignInBox.NON_CSS_BUTTON),
+                Click.on(SignInBox.NON_SSO_BUTTON),
                 Enter.theValue(user.getUsername()).into(SignInBox.USERNAME_FIELD),
                 Enter.theValue(user.getPassword()).into(SignInBox.PASSWORD_FIELD),
-                Click.on(SignInBox.LOG_IN_BUTTON),
-                Click.on(SignInBox.NAV_BAR_BTN),
+                Click.on(SignInBox.SIGN_IN_BUTTON),
+                Click.on(NavigatorUI.NAV_BAR_BTN),
                 Click.on(SignInBox.REGISTER_DATA_MANAGER_BTN),
-                Click.on(SignInBox.COMMENT_BTN),
-                Click.on(SignInBox.CATEGORY_TYPE),
-                Click.on(SignInBox.ADD_CATEGORY_BTN)
+                Click.on(NavigatorUI.COMMENT_BTN),
+                Click.on(NavigatorUI.CATEGORY_TYPE),
+                Pause.seconds(2),
+                WaitUntil.the(CreateCommentCategoryUI.ADD_BUTTON_HOVER, isVisible())
+                        .forNoMoreThan(30).seconds(),
+                Click.on(CreateCommentCategoryUI.ADD_BUTTON_HOVER),
+                Pause.seconds(1),
+                Enter.theValue(category.getName()).into(CreateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
+                Pause.seconds(1),
+                Click.on(CreateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN)
         );
     }
 }
