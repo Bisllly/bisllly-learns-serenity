@@ -11,6 +11,7 @@ import net.thucydides.core.annotations.Steps;
 import no.restaff.fresher.entity.Category;
 import no.restaff.fresher.entity.User;
 import no.restaff.fresher.tasks.FindUsernameInputField;
+import no.restaff.fresher.testdata.CategoryData;
 import no.restaff.fresher.ui.CreateCommentCategoryBox;
 import no.restaff.fresher.ui.CreateCommentCategoryUI;
 import no.restaff.fresher.ui.NavigatorUI;
@@ -33,7 +34,7 @@ public class ExampleSearchByKeywordStory {
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
     private User user = new User("testbot@mailinator.com", "Password..1");
-    private Category category = new Category("test");
+    public Category category = new Category(CategoryData.CATEGORY_NAME);
 
     @Steps
     OpenTheSignInPage openTheSignInPage;
@@ -65,14 +66,19 @@ public class ExampleSearchByKeywordStory {
                 Click.on(SignInBox.REGISTER_DATA_MANAGER_BTN),
                 Click.on(NavigatorUI.COMMENT_BTN),
                 Click.on(NavigatorUI.CATEGORY_TYPE),
-                Pause.seconds(2),
+                Pause.seconds(5),
                 WaitUntil.the(CreateCommentCategoryUI.ADD_BUTTON_HOVER, isVisible())
                         .forNoMoreThan(30).seconds(),
                 Click.on(CreateCommentCategoryUI.ADD_BUTTON_HOVER),
                 Pause.seconds(1),
                 Enter.theValue(category.getName()).into(CreateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
                 Pause.seconds(1),
-                Click.on(CreateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN)
+                Click.on(CreateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN),
+                Pause.seconds(3),
+                Click.on(CreateCommentCategoryUI.ADDED_DELETE_BUTTON),
+                Click.on(CreateCommentCategoryUI.CONFIRM_DELETE_BTN),
+                Pause.seconds(3)
+
         );
     }
 }
