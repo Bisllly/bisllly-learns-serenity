@@ -1,8 +1,6 @@
 package no.restaff.fresher.ui;
 
 import net.serenitybdd.screenplay.targets.Target;
-import no.restaff.fresher.entity.Category;
-import no.restaff.fresher.testdata.CategoryData;
 
 public class CreateCommentCategoryUI {
 
@@ -16,7 +14,6 @@ public class CreateCommentCategoryUI {
                 "/ancestor::div[contains(@class,'MuiToolbar-gutters')]//div//button/span)[1]");
     public static final Target ADDED_BUTTON = Target.the("added button")
             .locatedBy("//div[text()='{0}']/parent::div/parent::td/following-sibling::td//button[@title='Delete Comment Category']");
-    public static final Target ADDED_DELETE_BUTTON = ADDED_BUTTON.of(CategoryData.CATEGORY_NAME);
     public static final Target CONFIRM_DELETE_BTN = Target.the("confirm delete")
             .locatedBy("//span[text()='Delete']");
 }

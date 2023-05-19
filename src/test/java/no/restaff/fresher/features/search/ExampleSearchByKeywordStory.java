@@ -11,7 +11,6 @@ import net.thucydides.core.annotations.Steps;
 import no.restaff.fresher.entity.Category;
 import no.restaff.fresher.entity.User;
 import no.restaff.fresher.tasks.FindUsernameInputField;
-import no.restaff.fresher.testdata.CategoryData;
 import no.restaff.fresher.ui.CreateCommentCategoryBox;
 import no.restaff.fresher.ui.CreateCommentCategoryUI;
 import no.restaff.fresher.ui.NavigatorUI;
@@ -34,7 +33,7 @@ public class ExampleSearchByKeywordStory {
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
     private User user = new User("testbot@mailinator.com", "Password..1");
-    public Category category = new Category(CategoryData.CATEGORY_NAME);
+    public Category category = new Category("123");
 
     @Steps
     OpenTheSignInPage openTheSignInPage;
@@ -75,7 +74,7 @@ public class ExampleSearchByKeywordStory {
                 Pause.seconds(1),
                 Click.on(CreateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN),
                 Pause.seconds(3),
-                Click.on(CreateCommentCategoryUI.ADDED_DELETE_BUTTON),
+                Click.on(CreateCommentCategoryUI.ADDED_BUTTON.of(category.getName())),
                 Click.on(CreateCommentCategoryUI.CONFIRM_DELETE_BTN),
                 Pause.seconds(3)
 
