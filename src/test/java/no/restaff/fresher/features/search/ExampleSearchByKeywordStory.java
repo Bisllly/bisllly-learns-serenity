@@ -8,13 +8,11 @@ import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import no.restaff.fresher.actions.ClearField;
 import no.restaff.fresher.entity.Category;
 import no.restaff.fresher.entity.User;
 import no.restaff.fresher.tasks.FindUsernameInputField;
-import no.restaff.fresher.ui.CreateCommentCategoryBox;
-import no.restaff.fresher.ui.CreateCommentCategoryUI;
-import no.restaff.fresher.ui.NavigatorUI;
-import no.restaff.fresher.ui.SignInBox;
+import no.restaff.fresher.ui.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +31,7 @@ public class ExampleSearchByKeywordStory {
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
     private User user = new User("testbot@mailinator.com", "Password..1");
-    public Category category = new Category("123");
+    public Category category = new Category("123", "456");
 
     @Steps
     OpenTheSignInPage openTheSignInPage;
@@ -74,10 +72,19 @@ public class ExampleSearchByKeywordStory {
                 Pause.seconds(1),
                 Click.on(CreateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN),
                 Pause.seconds(3),
-                Click.on(CreateCommentCategoryUI.ADDED_BUTTON.of(category.getName())),
+
+                Click.on(CreateCommentCategoryUI.ADDED_EDIT_BUTTON.of(category.getName())),
+                ClearField.the(UpdateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
+                Pause.seconds(3),
+
+                Enter.theValue(category.getUpdatedName()).into(UpdateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
+                Pause.seconds(3),
+                Click.on(UpdateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN),
+                Pause.seconds(3),
+
+                Click.on(CreateCommentCategoryUI.ADDED_DELETE_BUTTON.of(category.getUpdatedName())),
                 Click.on(CreateCommentCategoryUI.CONFIRM_DELETE_BTN),
                 Pause.seconds(3)
-
         );
     }
 }

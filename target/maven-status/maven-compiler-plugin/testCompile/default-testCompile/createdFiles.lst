@@ -1,4 +1,5 @@
 no/restaff/fresher/ui/SignInPage.class
+no/restaff/fresher/actions/PressText.class
 no/restaff/fresher/tasks/_Example_Search.class
 no/restaff/fresher/ui/CreateCommentCategoryUI.class
 no/restaff/fresher/entity/Category.class
@@ -8,8 +9,11 @@ no/restaff/fresher/tasks/OpenTheSignInPage.class
 no/restaff/fresher/ui/SignInBox.class
 no/restaff/fresher/ui/NavigatorUI.class
 no/restaff/fresher/ui/CreateCommentCategoryBox.class
+no/restaff/fresher/ui/UpdateCommentCategoryBox.class
 no/restaff/fresher/tasks/FindUsernameInputField.class
 no/restaff/fresher/features/search/Pause.class
 no/restaff/fresher/entity/User.class
+no/restaff/fresher/actions/ClearField.class
+no/restaff/fresher/actions/Press.class
 no/restaff/fresher/features/search/package-info.class
 no/restaff/fresher/ui/_Example_SearchBox.class
