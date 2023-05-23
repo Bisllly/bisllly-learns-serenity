@@ -9,8 +9,8 @@ public class NavigatorUI {
                     .locatedBy("//div[text()='{0}']");
     public static final Target COMMENT_BTN = MENU_ITEM.of("Comments");
     public static final Target CATEGORY_TYPE =  MENU_ITEM.of("Categories");
+    public static final Target OBJECT_MANAGER_NAV = MENU_ITEM.of("Object Manager");
 
     public static final Target NAV_BAR_BTN = Target.the("nav bar button")
             .locatedBy("//span[@class='menu-icon']");
-
 }

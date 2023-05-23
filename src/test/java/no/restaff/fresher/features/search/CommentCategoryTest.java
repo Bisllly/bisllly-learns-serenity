@@ -24,14 +24,13 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 
 @RunWith(SerenityRunner.class)
-public class ExampleSearchByKeywordStory {
+public class CommentCategoryTest {
     Actor anna = Actor.named("Anna");
-    Actor david = Actor.named("David");
 
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
     private User user = new User("testbot@mailinator.com", "Password..1");
-    public Category category = new Category("123", "456");
+    public Category category = new Category();
 
     @Steps
     OpenTheSignInPage openTheSignInPage;
@@ -41,9 +40,6 @@ public class ExampleSearchByKeywordStory {
     @Before
     public void annaCanBrowseTheWeb() {
         anna.can(
-                BrowseTheWeb.with(herBrowser)
-        );
-        david.can(
                 BrowseTheWeb.with(herBrowser)
         );
     }
@@ -63,28 +59,20 @@ public class ExampleSearchByKeywordStory {
                 Click.on(SignInBox.REGISTER_DATA_MANAGER_BTN),
                 Click.on(NavigatorUI.COMMENT_BTN),
                 Click.on(NavigatorUI.CATEGORY_TYPE),
-                Pause.seconds(5),
+                Pause.seconds(1),
                 WaitUntil.the(CreateCommentCategoryUI.ADD_BUTTON_HOVER, isVisible())
                         .forNoMoreThan(30).seconds(),
                 Click.on(CreateCommentCategoryUI.ADD_BUTTON_HOVER),
-                Pause.seconds(1),
                 Enter.theValue(category.getName()).into(CreateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
-                Pause.seconds(1),
                 Click.on(CreateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN),
-                Pause.seconds(3),
-
                 Click.on(CreateCommentCategoryUI.ADDED_EDIT_BUTTON.of(category.getName())),
                 ClearField.the(UpdateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
-                Pause.seconds(3),
-
                 Enter.theValue(category.getUpdatedName()).into(UpdateCommentCategoryBox.COMMENT_CATEGORY_NAME_INPUT),
-                Pause.seconds(3),
                 Click.on(UpdateCommentCategoryBox.COMMENT_CATEGORY_SAVE_BTN),
-                Pause.seconds(3),
-
                 Click.on(CreateCommentCategoryUI.ADDED_DELETE_BUTTON.of(category.getUpdatedName())),
                 Click.on(CreateCommentCategoryUI.CONFIRM_DELETE_BTN),
                 Pause.seconds(3)
+
         );
     }
 }
