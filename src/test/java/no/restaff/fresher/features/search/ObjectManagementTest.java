@@ -9,12 +9,14 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import no.restaff.fresher.actions.ClearField;
+import no.restaff.fresher.actions.Press;
 import no.restaff.fresher.entity.BaseNominationObject;
 import no.restaff.fresher.entity.User;
 import no.restaff.fresher.ui.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import no.restaff.fresher.tasks.OpenTheSignInPage;
 
@@ -63,8 +65,14 @@ public class ObjectManagementTest {
 
                 ClearField.the(EditObjectTemplateUI.OBJECT_NAME_INPUT),
                 Enter.theValue(baseNominationObject.getName()).into(EditObjectTemplateUI.OBJECT_NAME_INPUT),
+                Click.on(EditObjectTemplateUI.TEMPLATE_CATEGORY_INPUT),
                 Enter.theValue(baseNominationObject.getTemplateCategory()).into(EditObjectTemplateUI.TEMPLATE_CATEGORY_INPUT),
+                Pause.seconds(5),
+                Press.aKey(Keys.TAB),
+                Click.on(EditObjectTemplateUI.TEMPLATE_SUBSCRIPTION_INPUT),
                 Enter.theValue(baseNominationObject.getTemplateSubscription()).into(EditObjectTemplateUI.TEMPLATE_SUBSCRIPTION_INPUT),
+                Pause.seconds(5),
+                Press.aKey(Keys.TAB),
 
                 Pause.seconds(5)
         );
