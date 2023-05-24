@@ -1,5 +1,3 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Comment category test","Navigate to sign in page","SUCCESS","2023-05-23T13:12:57.376025+07:00[Asia/Ho_Chi_Minh]","0.0","5.78"
-"Comment category test","Log in and go to add","SUCCESS","2023-05-23T13:13:03.237172+07:00[Asia/Ho_Chi_Minh]","0.0","19.84"
-"Object management test","Navigate to sign in page","SUCCESS","2023-05-23T13:13:24.412462+07:00[Asia/Ho_Chi_Minh]","0.0","6.95"
-"Object management test","Log in and go to object management","SUCCESS","2023-05-23T13:13:31.387011+07:00[Asia/Ho_Chi_Minh]","0.0","9.36"
+"Object management test","Navigate to sign in page","SUCCESS","2023-05-24T18:41:48.29679+07:00[Asia/Ho_Chi_Minh]","0.0","8.04"
+"Object management test","Log in and go to object management","SUCCESS","2023-05-24T18:41:56.416248+07:00[Asia/Ho_Chi_Minh]","0.0","44.2"

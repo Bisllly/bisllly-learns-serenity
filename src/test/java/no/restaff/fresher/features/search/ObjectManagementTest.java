@@ -58,23 +58,33 @@ public class ObjectManagementTest {
                 Click.on(NavigatorUI.NAV_BAR_BTN),
                 Click.on(NavigatorUI.OBJECT_MANAGER_NAV),
                 Pause.seconds(5),
+                WaitUntil.the(ObjectManagementUI.ADD_OBJECT_TEMPLATE_BTN, isPresent()),
                 WaitUntil.the(ObjectManagementUI.ADD_OBJECT_TEMPLATE_BTN, isClickable()),
                 Click.on(ObjectManagementUI.ADD_OBJECT_TEMPLATE_BTN),
                 WaitUntil.the(ObjectManagementUI.NTH_OBJECT_TEMPLATE_TYPE, isClickable()),
                 Click.on(ObjectManagementUI.FOURTH_OBJECT_TEMPLATE),
 
-                ClearField.the(EditObjectTemplateUI.OBJECT_NAME_INPUT),
-                Enter.theValue(baseNominationObject.getName()).into(EditObjectTemplateUI.OBJECT_NAME_INPUT),
-                Click.on(EditObjectTemplateUI.TEMPLATE_CATEGORY_INPUT),
-                Enter.theValue(baseNominationObject.getTemplateCategory()).into(EditObjectTemplateUI.TEMPLATE_CATEGORY_INPUT),
-                Pause.seconds(5),
+                ClearField.the(CreateObjectTemplateUI.OBJECT_NAME_INPUT),
+                Enter.theValue(baseNominationObject.getName()).into(CreateObjectTemplateUI.OBJECT_NAME_INPUT),
+                Click.on(CreateObjectTemplateUI.TEMPLATE_CATEGORY_INPUT),
+                Enter.theValue(baseNominationObject.getTemplateCategory()).into(CreateObjectTemplateUI.TEMPLATE_CATEGORY_INPUT),
+                Pause.seconds(1),
                 Press.aKey(Keys.TAB),
-                Click.on(EditObjectTemplateUI.TEMPLATE_SUBSCRIPTION_INPUT),
-                Enter.theValue(baseNominationObject.getTemplateSubscription()).into(EditObjectTemplateUI.TEMPLATE_SUBSCRIPTION_INPUT),
-                Pause.seconds(5),
+                Click.on(CreateObjectTemplateUI.TEMPLATE_SUBSCRIPTION_INPUT),
+                Enter.theValue(baseNominationObject.getTemplateSubscription()).into(CreateObjectTemplateUI.TEMPLATE_SUBSCRIPTION_INPUT),
+                Pause.seconds(1),
                 Press.aKey(Keys.TAB),
+                Click.on(CreateObjectTemplateUI.SAVE_OBJECT_TEMPLATE_BTN),
+                Pause.seconds(10),
+                WaitUntil.the(CreateObjectTemplateUI.RELATIONS_STAGE_BTN, isClickable()),
+                Click.on(CreateObjectTemplateUI.FIELDS_STAGE_BTN),
+                Pause.seconds(10),
 
-                Pause.seconds(5)
+                WaitUntil.the(CreateObjectTemplateUI.DELETE_OBJECT_TEMPLATE_BTN, isClickable()),
+                Click.on(CreateObjectTemplateUI.DELETE_OBJECT_TEMPLATE_BTN),
+                Pause.seconds(1),
+                Click.on(DeleteObjectTemplateBox.CONFIRM_DELETE_BTN)
+
         );
 
     }
