@@ -34,8 +34,6 @@ public class CommentCategoryTest {
 
     @Steps
     OpenTheSignInPage openTheSignInPage;
-    FindUsernameInputField findUsernameInputField;
-
 
     @Before
     public void annaCanBrowseTheWeb() {
