@@ -1,4 +1,4 @@
-package no.restaff.fresher.ui;
+package no.restaff.fresher.ui.sign_in;
 
 public class SignInBox {
 

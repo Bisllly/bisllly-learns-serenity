@@ -1,4 +1,4 @@
-package no.restaff.fresher.ui;
+package no.restaff.fresher.ui.object_template;
 
 import net.serenitybdd.screenplay.targets.Target;
 

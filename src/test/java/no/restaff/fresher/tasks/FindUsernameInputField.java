@@ -4,11 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.thucydides.core.annotations.Step;
-import no.restaff.fresher.ui.SignInBox;
-import no.restaff.fresher.ui._Example_SearchBox;
-
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static org.openqa.selenium.Keys.ENTER;
+import no.restaff.fresher.ui.sign_in.SignInBox;
 
 public class FindUsernameInputField implements Task {
     SignInBox signInBox;

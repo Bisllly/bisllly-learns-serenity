@@ -1,4 +1,4 @@
-package no.restaff.fresher.ui;
+package no.restaff.fresher.ui.example;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;

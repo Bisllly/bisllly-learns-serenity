@@ -1,4 +1,4 @@
-package no.restaff.fresher.tasks;
+package no.restaff.fresher.tasks.example;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Step;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static org.openqa.selenium.Keys.ENTER;
 
-import no.restaff.fresher.ui._Example_SearchBox;
+import no.restaff.fresher.ui.example._Example_SearchBox;
 
 public class _Example_Search implements Task {
 

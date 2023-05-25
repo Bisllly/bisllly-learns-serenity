@@ -1,4 +1,4 @@
-package no.restaff.fresher.ui;
+package no.restaff.fresher.ui.example;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;

@@ -1,4 +1,4 @@
-package no.restaff.fresher.ui;
+package no.restaff.fresher.ui.comment_category_ui;
 
 import net.serenitybdd.screenplay.targets.Target;
 

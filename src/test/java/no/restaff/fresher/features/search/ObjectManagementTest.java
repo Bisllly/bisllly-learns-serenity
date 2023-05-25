@@ -12,13 +12,17 @@ import no.restaff.fresher.actions.ClearField;
 import no.restaff.fresher.actions.Press;
 import no.restaff.fresher.entity.BaseNominationObject;
 import no.restaff.fresher.entity.User;
+import no.restaff.fresher.tasks.sign_in.SignIn;
 import no.restaff.fresher.ui.*;
+import no.restaff.fresher.ui.object_template.CreateObjectTemplateUI;
+import no.restaff.fresher.ui.object_template.DeleteObjectTemplateBox;
+import no.restaff.fresher.ui.object_template.ObjectManagementUI;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import no.restaff.fresher.tasks.OpenTheSignInPage;
+import no.restaff.fresher.tasks.sign_in.OpenThePage;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
@@ -27,34 +31,24 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 @RunWith(SerenityRunner.class)
 public class ObjectManagementTest {
     Actor david = Actor.named("David");
-
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
-    private User user = new User("testbot@mailinator.com", "Password..1");
     private BaseNominationObject baseNominationObject = new BaseNominationObject("Nomination", "SMART Terminal");
+    private static User user = new User("testbot@mailinator.com", "Password..1");
     @Steps
-    OpenTheSignInPage openTheSignInPage;
-
-
+    OpenThePage openThePage;
     @Before
     public void annaCanBrowseTheWeb() {
         david.can(
                 BrowseTheWeb.with(herBrowser)
         );
     }
-
     @Test
-    public void navigate_to_sign_in_page() {
-        givenThat(david).wasAbleTo(openTheSignInPage);
-    }
+    public void navigate_to_sign_in_page() { givenThat(david).wasAbleTo(openThePage); }
     @Test
     public void log_in_and_go_to_object_management() {
         david.attemptsTo(
-                Click.on(SignInBox.NON_SSO_BUTTON),
-                Enter.theValue(user.getUsername()).into(SignInBox.USERNAME_FIELD),
-                Enter.theValue(user.getPassword()).into(SignInBox.PASSWORD_FIELD),
-                Click.on(SignInBox.SIGN_IN_BUTTON),
-
+                SignIn.asUser(user),
                 Click.on(NavigatorUI.NAV_BAR_BTN),
                 Click.on(NavigatorUI.OBJECT_MANAGER_NAV),
                 Pause.seconds(5),
@@ -84,7 +78,6 @@ public class ObjectManagementTest {
                 Click.on(CreateObjectTemplateUI.DELETE_OBJECT_TEMPLATE_BTN),
                 Pause.seconds(1),
                 Click.on(DeleteObjectTemplateBox.CONFIRM_DELETE_BTN)
-
         );
 
     }
