@@ -18,4 +18,10 @@ public class ObjectManagementUI {
     public static final Target FIFTH_OBJECT_TEMPLATE = OBJECT_TEMPLATE_TYPES.of("5");
 
     public static final Target NTH_OBJECT_TEMPLATE_TYPE = OBJECT_TEMPLATE_TYPES.of(RandomStringNumGenerator.generateRandomStringNum());
+
+    public static final Target BASE_OBJECT_FIELDS = Target.the("base object fields")
+            .locatedBy("//div//p[text()='{0}']");
+
+    public static final Target DISPLAY_OBJECT_FIELDS = Target.the("display object fields")
+            .locatedBy("//div/h6[text()='OBJECT FIELDS']//parent::div//parent::div//following-sibling::div[count(div) = 1]");
 }
