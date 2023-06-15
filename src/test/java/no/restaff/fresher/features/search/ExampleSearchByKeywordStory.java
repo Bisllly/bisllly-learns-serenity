@@ -32,7 +32,7 @@ public class ExampleSearchByKeywordStory {
 
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
-    private User user = new User("testbot@mailinator.com", "Password..1");
+    private User user = new User("*******", "*******");
     public Category category = new Category("123");
 
     @Steps
